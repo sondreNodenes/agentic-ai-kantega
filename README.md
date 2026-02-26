@@ -1,5 +1,11 @@
 # Agentiske Systemer – Workshop
 
+![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python&logoColor=white)
+![Agent Framework](https://img.shields.io/badge/Agent_Framework-1.0.0rc1-purple?logo=microsoft&logoColor=white)
+![Azure OpenAI](https://img.shields.io/badge/Azure_OpenAI-GPT--5_nano-0078D4?logo=microsoftazure&logoColor=white)
+![DuckDuckGo](https://img.shields.io/badge/DuckDuckGo-Search-DE5833?logo=duckduckgo&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 En praktisk introduksjon til agentiske AI-systemer bygget med [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/?pivots=programming-language-python).
 
 ---

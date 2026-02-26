@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from process_event_stream import process_event_stream
 
-discussion_rounds = 1
+discussion_rounds = 2
 load_dotenv()
 
 # EXERCISE: 
@@ -61,6 +61,7 @@ async def main_stream(task: str) -> None:
             orchestrator_agent=orchestrator
          )
         .with_max_rounds(discussion_rounds)  # Limit the number of rounds the discussion can go on for
+        .with_request_info(agents=[critic])  # Pause before critic speaks so human can give feedback
         .build()
     )
 

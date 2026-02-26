@@ -5,6 +5,8 @@ from agent_framework.azure import AzureOpenAIChatClient
 from ddgs import DDGS
 from dotenv import load_dotenv
 
+
+
 load_dotenv()
 
 # EXERCISE: write a real browsing tool to search for your name, company, or something else interesting.
@@ -15,9 +17,16 @@ load_dotenv()
 # For simplicity, we will use a mock function here that returns a static string.
 @tool(approval_mode="never_require")
 async def web_search(query: str) -> str:
-    """TODO: Find information on the web"""
+   
+    results = DDGS().text(query, max_results=5)
+
+    all_results = []
+    for result in results:
+        print(result)
+        all_results.append(result)
+
     print(f"Tool called with query: {query}")
-    return "Kantega is an IT consultancy, with offices in Trondheim, Oslo and Bergen"
+    return str(all_results)
 
 async def search(query: str) -> None:
     async with AzureOpenAIChatClient().as_agent(
@@ -32,5 +41,5 @@ async def main(task: str) -> None:
     await search(task)
 
 if __name__ == "__main__":
-    task = "Make a summary about Kantega AS, a company located in Trondheim, Norway. Keep it in english. "
+    task = "Finn ut ting om Sondre Nodenes-Fimland. "
     asyncio.run(main(task))

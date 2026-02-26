@@ -36,7 +36,7 @@ Opprett en `.env`-fil i rotmappen med følgende innhold:
 
 ```
 AZURE_OPENAI_API_KEY="din_api_nøkkel_her"
-AZURE_OPENAI_ENDPOINT="https://kagents.openai.azure.com/"
+AZURE_OPENAI_ENDPOINT="Ditt endepunkt"
 AZURE_OPENAI_CHAT_DEPLOYMENT_NAME="gpt-5-nano"
 AZURE_OPENAI_RESPONSES_DEPLOYMENT_NAME="gpt-5-nano"
 ```

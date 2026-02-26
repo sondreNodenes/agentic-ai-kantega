@@ -32,22 +32,26 @@ async def main_stream(task: str) -> None:
     # Create the coding agent.
     primary = client.as_agent(
         name="Coder",
-        instructions="You are a helpful AI assistant that keeps it short.",
+        instructions="You are a helpful AI assistant",
+    )
+
+    # Create the critic agent.
+    critic = client.as_agent(
+        name="Critic",
+        instructions="Provide constructive feedback. Do not be too strict. Keep your answers somewhat short.",
     )
 
     # Create the orchestrator coordinating the discussion
     orchestrator = client.as_agent(
         name="orchestrator",
-        instructions=(
-            "You are a discussion manager coordinating a team conversation between participants. "
-            "Your job is to select who speaks next.\n\n"),
+        instructions=("Rotate through ALL participants. Each participant must speak once before anyone speaks twice. Never select the same participant twice in a row unless they are the only one who has not spoken. Keep track of who has spoken in the current round. Continue round-robin order. \n\n"),
         )
 
     team = (
         GroupChatBuilder(
-            participants=[primary],
+            participants=[primary, critic],
             max_rounds=rounds_of_discussion,
-            orchestrator_agent=orchestrator
+            orchestrator_agent=orchestrator,
         )
         .build()
     )
@@ -64,5 +68,5 @@ async def main_stream(task: str) -> None:
 
 if __name__ == "__main__":
     print("Starting team discussion...")
-    task = "What is the answer to everything?"
+    task = "Finn ut hvem som er kulest av fredrik Schmid Bjørge og Sondre Nodenes-Fimland, du skal velge ?"
     asyncio.run(main_stream(task))

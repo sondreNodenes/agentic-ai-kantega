@@ -1,0 +1,7 @@
+data/
+kb/
+scripts/
+coding/*
+!coding/titanic.csv
+.env
+**/__pycache__

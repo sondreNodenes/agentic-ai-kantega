@@ -1,4 +1,4 @@
-# Agentiske Systemer – Workshop
+# Agentiska AI – Workshop
 
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python&logoColor=white)
 ![Agent Framework](https://img.shields.io/badge/Agent_Framework-1.0.0rc1-purple?logo=microsoft&logoColor=white)
